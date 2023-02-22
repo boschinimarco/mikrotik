@@ -1,0 +1,25 @@
+#--------------------------------------------
+# Author: Marco Boschini
+# Data: 2023-02-22 15:01
+# Version: 1.0
+#--------------------------------------------
+
+#--------------------------------------------
+# istanzio le variabili
+#--------------------------------------------
+:local bot "inserire-qui";
+:local ChatID "inserire-qui"
+
+#--------------------------------------------
+# creo il testo
+#--------------------------------------------
+:local textMessage "Hello [Time] [Device.Name]"
+
+#--------------------------------------------
+# non modificare da questo punto in poi
+#--------------------------------------------
+:local requestUrl "https://api.telegram.org/bot$bot/sendMessage";
+
+:local httpData "{\"chat_id\": \"$ChatID\", \"text\": \"$textMessage\"}";
+
+/tool fetch url=$requestUrl http-data=$httpData http-header-field=content-type:application/json http-method=post keep-result=no
